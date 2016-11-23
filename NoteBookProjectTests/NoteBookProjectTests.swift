@@ -26,6 +26,19 @@ class NoteBookProjectTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
+    func testGlobalAverage(){
+        
+       
+        
+    }
+    
+    func testRelativeAverage() {
+        
+        let user:User =  User(name:"toto")
+        let math:Subject = Subject(name:"MATH",range:5)
+    }
+    
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
