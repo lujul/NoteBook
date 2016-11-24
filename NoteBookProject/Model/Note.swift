@@ -66,6 +66,20 @@ class Note: Object {
         
     }
     
+    public func setComment(newValue:String) {
+        if newValue.characters.count >= 0 {
+            if let r = realm {
+                try! r.write {
+                    self._comment = newValue
+                }
+            } else {
+                self._comment = newValue
+            }
+        }
+        
+    }
+
+    
     public func getValue() -> Float {
         return _value
     }

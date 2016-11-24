@@ -16,12 +16,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="notes-cell" id="P9M-tq-mZ0">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="notes-cell" textLabel="Uab-vm-cFJ" detailTextLabel="UVQ-uT-f6L" style="IBUITableViewCellStyleValue1" id="P9M-tq-mZ0">
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P9M-tq-mZ0" id="MKA-X0-Yyg">
-                                    <frame key="frameInset" width="375" height="44"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Uab-vm-cFJ">
+                                            <frame key="frameInset" minX="15" minY="11" width="34" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UVQ-uT-f6L">
+                                            <frame key="frameInset" minX="316" minY="11" width="44" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -32,7 +48,11 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="K1Z-Lf-1an">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="8Yd-cB-GMe"/>
+                        <barButtonItem key="rightBarButtonItem" title="+" id="8Yd-cB-GMe">
+                            <connections>
+                                <segue destination="j5L-sJ-woI" kind="show" id="mce-qH-dey"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
@@ -85,7 +105,7 @@
                     <navigationItem key="navigationItem" title="Matieres" id="l0o-uQ-YfL">
                         <barButtonItem key="rightBarButtonItem" title="+" id="Qm2-zV-2mE">
                             <connections>
-                                <segue destination="ZYd-eT-BaY" kind="show" id="izN-Oz-Hcn"/>
+                                <segue destination="ZYd-eT-BaY" kind="show" id="yVR-1O-DsA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -94,7 +114,7 @@
             </objects>
             <point key="canvasLocation" x="1385" y="-322"/>
         </scene>
-        <!--Add Subject View Controller-->
+        <!--Nouvelle Matière-->
         <scene sceneID="UsK-jP-5Aa">
             <objects>
                 <viewController id="ZYd-eT-BaY" customClass="AddSubjectViewController" customModule="NoteBookProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -149,10 +169,10 @@
                             <constraint firstItem="ASj-mB-12b" firstAttribute="baseline" secondItem="mtK-hT-VvS" secondAttribute="baseline" id="jrd-gL-fjB"/>
                             <constraint firstItem="ASj-mB-12b" firstAttribute="leading" secondItem="mtK-hT-VvS" secondAttribute="trailing" constant="20" id="mQ5-vC-AVd"/>
                             <constraint firstItem="QeD-Vd-ZxT" firstAttribute="leading" secondItem="mtK-hT-VvS" secondAttribute="leading" id="mW9-VW-ioe"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="21s-2j-eF7" secondAttribute="trailing" constant="5" id="vty-4e-FZw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="21s-2j-eF7" secondAttribute="trailing" constant="10" id="vty-4e-FZw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="JEX-g1-doc">
+                    <navigationItem key="navigationItem" title="Nouvelle Matière" id="JEX-g1-doc">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="ubm-gl-otP">
                             <connections>
                                 <segue destination="Ztg-1C-wjk" kind="unwind" identifier="unwindToVCbyCancel" unwindAction="unwindToVCbyCancelFor:" id="ehm-o9-ufo"/>
@@ -173,7 +193,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k9Z-hh-uVQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Ztg-1C-wjk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1975" y="500"/>
+            <point key="canvasLocation" x="1993" y="-1199"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
@@ -231,6 +251,90 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cA0-Rl-sw8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="-1011"/>
+        </scene>
+        <!--Nouvelle Note-->
+        <scene sceneID="jlb-TC-spd">
+            <objects>
+                <viewController id="j5L-sJ-woI" customClass="AddNoteViewController" customModule="NoteBookProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SEn-8e-aYx"/>
+                        <viewControllerLayoutGuide type="bottom" id="KEF-m8-8Z7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ror-La-YGx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nom:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gaz-tb-uzY">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coefficient:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fO-ij-MXy">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TwT-XL-bGZ">
+                                <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0G-US-r95">
+                                <frame key="frameInset" minX="88" minY="229" width="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="mad-kQ-xQD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="oRc-jX-Qub">
+                                <connections>
+                                    <action selector="coefValueChange:" destination="j5L-sJ-woI" eventType="valueChanged" id="iT2-0c-gt6"/>
+                                    <action selector="coeffValueChange:" destination="ZYd-eT-BaY" eventType="valueChanged" id="pcu-eN-G0e"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oRc-jX-Qub" firstAttribute="baseline" secondItem="e0G-US-r95" secondAttribute="baseline" id="BYr-tk-Yae"/>
+                            <constraint firstItem="7fO-ij-MXy" firstAttribute="top" secondItem="Gaz-tb-uzY" secondAttribute="bottom" constant="60" id="Czd-sf-J8C"/>
+                            <constraint firstItem="Gaz-tb-uzY" firstAttribute="leading" secondItem="ror-La-YGx" secondAttribute="leading" constant="5" id="G2u-sc-l3n"/>
+                            <constraint firstItem="TwT-XL-bGZ" firstAttribute="baseline" secondItem="Gaz-tb-uzY" secondAttribute="baseline" id="HQD-jD-ayE"/>
+                            <constraint firstItem="7fO-ij-MXy" firstAttribute="leading" secondItem="Gaz-tb-uzY" secondAttribute="leading" id="LNo-cz-ZAF"/>
+                            <constraint firstItem="e0G-US-r95" firstAttribute="baseline" secondItem="7fO-ij-MXy" secondAttribute="baseline" id="Q6C-2g-0D7"/>
+                            <constraint firstItem="Gaz-tb-uzY" firstAttribute="top" secondItem="SEn-8e-aYx" secondAttribute="bottom" constant="100" id="XBl-q8-Q2u"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TwT-XL-bGZ" secondAttribute="trailing" constant="10" id="Yau-gp-ZZD"/>
+                            <constraint firstItem="TwT-XL-bGZ" firstAttribute="baseline" secondItem="Gaz-tb-uzY" secondAttribute="baseline" id="ZvJ-9x-64p"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oRc-jX-Qub" secondAttribute="trailing" constant="10" id="bYH-S9-wj7"/>
+                            <constraint firstItem="TwT-XL-bGZ" firstAttribute="leading" secondItem="Gaz-tb-uzY" secondAttribute="trailing" constant="20" id="gS2-Yd-Bhg"/>
+                            <constraint firstItem="oRc-jX-Qub" firstAttribute="leading" secondItem="e0G-US-r95" secondAttribute="trailing" constant="5" id="lMI-2K-KSP"/>
+                            <constraint firstItem="e0G-US-r95" firstAttribute="leading" secondItem="7fO-ij-MXy" secondAttribute="trailing" constant="5" id="vQx-2W-ozY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Nouvelle Note" id="nmc-nu-yQO">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="klb-ot-uvQ">
+                            <connections>
+                                <segue destination="FIf-qK-xF7" kind="unwind" identifier="unwindToNoteDetailVCbyCancel" unwindAction="unwindToNoteDetailVCbyCancelFor:" id="jq6-gQ-6Wi"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Ciu-YZ-mDc">
+                            <connections>
+                                <segue destination="FIf-qK-xF7" kind="unwind" identifier="unwindToNoteDetailVCbySave" unwindAction="unwindToNoteDetailVCbySaveFor:" id="qZ8-lN-R6i"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="ui_coef_label" destination="e0G-US-r95" id="Zhc-Ir-k75"/>
+                        <outlet property="ui_coef_slider" destination="oRc-jX-Qub" id="9Vu-46-YHO"/>
+                        <outlet property="ui_noteName_textField" destination="TwT-XL-bGZ" id="3pg-UX-sCD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XLP-EO-453" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="FIf-qK-xF7" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2884" y="-1012"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

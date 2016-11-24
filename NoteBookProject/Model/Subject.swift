@@ -68,9 +68,11 @@ class Subject:Object {
             let note:Note = Note()
             note.setValue(newValue: value)
             note.setCoef(newCoeff: range)
+            note.setComment(newValue: comment)
             realm?.beginWrite()
             _notesList.append(note)
             try! realm?.commitWrite()
+            
         }
     }
     

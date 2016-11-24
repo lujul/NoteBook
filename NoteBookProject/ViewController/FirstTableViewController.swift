@@ -46,7 +46,7 @@ class FirstTableViewController: UITableViewController {
         }
     }
     
-    @IBAction func unwindToVCbySave(for segue: UIStoryboardSegue) { //Action créée a la main //je pourrais reccuperer mon object newSubject du AddSuject.. viewController ici si je voulais
+    @IBAction func unwindToVCbySave(for segue: UIStoryboardSegue) { //Action créée a la main //je pourrais recuperer mon object newSubject du AddSuject.. viewController ici si je voulais
         // update
         print ("unwindToVCbySave")
         
