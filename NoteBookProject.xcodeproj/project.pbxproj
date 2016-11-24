@@ -8,12 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		75EFBC3C73A56E976848E5B4 /* Pods_NoteBookProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F9BD3D7BA84B52E1C3223A /* Pods_NoteBookProject.framework */; };
+		8852DC7B1DE701A300BE2031 /* NoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8852DC7A1DE701A300BE2031 /* NoteTests.swift */; };
 		88618C9F1DE2F35300FD10BC /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88618C9E1DE2F35300FD10BC /* Note.swift */; };
-		88618CA01DE2F35300FD10BC /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88618C9E1DE2F35300FD10BC /* Note.swift */; };
 		88618CA21DE2F3A300FD10BC /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88618CA11DE2F3A300FD10BC /* Subject.swift */; };
-		88618CA31DE2F3A300FD10BC /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88618CA11DE2F3A300FD10BC /* Subject.swift */; };
 		88618CA51DE3005400FD10BC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88618CA41DE3005400FD10BC /* User.swift */; };
-		88618CA61DE3005400FD10BC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88618CA41DE3005400FD10BC /* User.swift */; };
 		88618CA81DE32B5400FD10BC /* FirstTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88618CA71DE32B5400FD10BC /* FirstTableViewController.swift */; };
 		88618CAA1DE32F4600FD10BC /* AddSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88618CA91DE32F4600FD10BC /* AddSubjectViewController.swift */; };
 		88618CAC1DE5F26F00FD10BC /* NoteDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88618CAB1DE5F26F00FD10BC /* NoteDetailTableViewController.swift */; };
@@ -56,6 +54,7 @@
 		55E95564BABD594C4D3C6097 /* Pods-NoteBookProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteBookProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-NoteBookProject/Pods-NoteBookProject.release.xcconfig"; sourceTree = "<group>"; };
 		6CF05421609369FF097B1D08 /* Pods-NoteBookProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteBookProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NoteBookProject/Pods-NoteBookProject.debug.xcconfig"; sourceTree = "<group>"; };
 		7E1230E375BEB61605AAD4E5 /* Pods-NoteBookProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteBookProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NoteBookProjectTests/Pods-NoteBookProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8852DC7A1DE701A300BE2031 /* NoteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTests.swift; sourceTree = "<group>"; };
 		88618C9E1DE2F35300FD10BC /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		88618CA11DE2F3A300FD10BC /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		88618CA41DE3005400FD10BC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -169,6 +168,7 @@
 			children = (
 				88EB3D741DE2EBE8002CD051 /* NoteBookProjectTests.swift */,
 				88EB3D761DE2EBE8002CD051 /* Info.plist */,
+				8852DC7A1DE701A300BE2031 /* NoteTests.swift */,
 			);
 			path = NoteBookProjectTests;
 			sourceTree = "<group>";
@@ -502,10 +502,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88618CA61DE3005400FD10BC /* User.swift in Sources */,
 				88EB3D751DE2EBE8002CD051 /* NoteBookProjectTests.swift in Sources */,
-				88618CA31DE2F3A300FD10BC /* Subject.swift in Sources */,
-				88618CA01DE2F35300FD10BC /* Note.swift in Sources */,
+				8852DC7B1DE701A300BE2031 /* NoteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

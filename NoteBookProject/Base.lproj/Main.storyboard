@@ -16,11 +16,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="P9M-tq-mZ0">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="notes-cell" id="P9M-tq-mZ0">
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P9M-tq-mZ0" id="MKA-X0-Yyg">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -30,10 +30,15 @@
                             <outlet property="delegate" destination="zQo-GZ-3Pm" id="xL6-Nw-KkB"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="K1Z-Lf-1an">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="8Yd-cB-GMe"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lpV-tA-khP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2334" y="-322"/>
+            <point key="canvasLocation" x="2420" y="-322"/>
         </scene>
         <!--Matieres-->
         <scene sceneID="SAj-wB-WlL">
@@ -68,7 +73,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="zQo-GZ-3Pm" kind="show" identifier="subject-note" id="VJs-UV-wEO"/>
+                                    <segue destination="zQo-GZ-3Pm" kind="show" identifier="subject-note" id="lgW-HL-c53"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
