@@ -23,16 +23,11 @@ class Note: Object {
         
     }
     
-    var comment:String {
-        get {
-            return _comment
-        }
-        set {
-            _comment = newValue
-        }
+    public func getTitle () -> String {
+        return _comment
     }
     
-    var value:Float {
+    public func getValue() -> Float {
         return _value
     }
     
@@ -80,14 +75,7 @@ class Note: Object {
     }
 
     
-    public func getValue() -> Float {
-        return _value
-    }
-    
-    
-    var range:Int {
-        return _range
-    }
+  
     
     
     

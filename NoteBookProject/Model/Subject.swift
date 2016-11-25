@@ -13,6 +13,7 @@ import RealmSwift
 
 class Subject:Object {
     
+   
     dynamic private var  _name:String = ""
     dynamic private var  _range:Int = 1
     private let _notesList = List<Note>()
@@ -23,13 +24,13 @@ class Subject:Object {
         _range = range
     }
     
-    var notesList:List<Note> { // avec Realm c est sauvé en bd.. faire fonction plutot
-        get {
-            return _notesList
-        }
+    
+    
+    public func getNoteList() -> List<Note> {
+        return _notesList
     }
     
-    public func getMark(atIndex index:Int) -> Note?{
+   public func getMark(atIndex index:Int) -> Note?{
         let mark:Note?
         if index >= 0 && index < _notesList.count {
              mark = _notesList[index]
@@ -39,15 +40,19 @@ class Subject:Object {
         return mark
          }
     
-    var name:String {
-        return _name
+    public func delete (atIndex index:Int) {
+        realm?.beginWrite()
+        _notesList.remove(objectAtIndex: index)
+        try! realm?.commitWrite()
     }
     
-    var range:Int {
-        return _range
-    }
     public func getTitle() -> String{
      return _name
+    }
+    
+    public func getRange() -> Int{
+        
+        return _range
     }
     
     public func setTitle(newTitle:String) { // je change la valeur d un object dans la base
@@ -96,7 +101,7 @@ class Subject:Object {
                 r.deleteAll()
             }
         } else {
-            notesList.removeAll()
+            _notesList.removeAll()
         }
     }
 
@@ -108,8 +113,9 @@ class Subject:Object {
             var somme:Float = 0.0
             var totalCoef:Int = 0
             for note:Note in _notesList {
-                somme += note.value*Float(note.range)
-                totalCoef += note.range
+                let range = Float(note.getCoef())
+                somme += note.getValue()*range
+                totalCoef += note.getCoef()
             }
             average = somme/Float(totalCoef)
             return average

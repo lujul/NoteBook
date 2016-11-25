@@ -295,9 +295,23 @@
                                     <action selector="coeffValueChange:" destination="ZYd-eT-BaY" eventType="valueChanged" id="pcu-eN-G0e"/>
                                 </connections>
                             </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsW-Of-6m9">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wrM-rd-Kx5">
+                                <color key="backgroundColor" red="1" green="0.95294117649999999" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="wrM-rd-Kx5" secondAttribute="trailing" constant="10" id="0sT-Lw-e2Q"/>
+                            <constraint firstItem="hsW-Of-6m9" firstAttribute="leading" secondItem="7fO-ij-MXy" secondAttribute="leading" id="9eZ-cL-lfM"/>
+                            <constraint firstItem="wrM-rd-Kx5" firstAttribute="leading" secondItem="hsW-Of-6m9" secondAttribute="trailing" constant="20" id="AgM-VP-eiC"/>
                             <constraint firstItem="oRc-jX-Qub" firstAttribute="baseline" secondItem="e0G-US-r95" secondAttribute="baseline" id="BYr-tk-Yae"/>
                             <constraint firstItem="7fO-ij-MXy" firstAttribute="top" secondItem="Gaz-tb-uzY" secondAttribute="bottom" constant="60" id="Czd-sf-J8C"/>
                             <constraint firstItem="Gaz-tb-uzY" firstAttribute="leading" secondItem="ror-La-YGx" secondAttribute="leading" constant="5" id="G2u-sc-l3n"/>
@@ -306,9 +320,11 @@
                             <constraint firstItem="e0G-US-r95" firstAttribute="baseline" secondItem="7fO-ij-MXy" secondAttribute="baseline" id="Q6C-2g-0D7"/>
                             <constraint firstItem="Gaz-tb-uzY" firstAttribute="top" secondItem="SEn-8e-aYx" secondAttribute="bottom" constant="100" id="XBl-q8-Q2u"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TwT-XL-bGZ" secondAttribute="trailing" constant="10" id="Yau-gp-ZZD"/>
+                            <constraint firstItem="hsW-Of-6m9" firstAttribute="top" secondItem="7fO-ij-MXy" secondAttribute="bottom" constant="60" id="Z2X-Gm-rIJ"/>
                             <constraint firstItem="TwT-XL-bGZ" firstAttribute="baseline" secondItem="Gaz-tb-uzY" secondAttribute="baseline" id="ZvJ-9x-64p"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oRc-jX-Qub" secondAttribute="trailing" constant="10" id="bYH-S9-wj7"/>
                             <constraint firstItem="TwT-XL-bGZ" firstAttribute="leading" secondItem="Gaz-tb-uzY" secondAttribute="trailing" constant="20" id="gS2-Yd-Bhg"/>
+                            <constraint firstItem="wrM-rd-Kx5" firstAttribute="baseline" secondItem="hsW-Of-6m9" secondAttribute="baseline" id="hh3-U8-kq3"/>
                             <constraint firstItem="oRc-jX-Qub" firstAttribute="leading" secondItem="e0G-US-r95" secondAttribute="trailing" constant="5" id="lMI-2K-KSP"/>
                             <constraint firstItem="e0G-US-r95" firstAttribute="leading" secondItem="7fO-ij-MXy" secondAttribute="trailing" constant="5" id="vQx-2W-ozY"/>
                         </constraints>
@@ -326,6 +342,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="picketTextField" destination="wrM-rd-Kx5" id="XQA-m8-7ZA"/>
                         <outlet property="ui_coef_label" destination="e0G-US-r95" id="Zhc-Ir-k75"/>
                         <outlet property="ui_coef_slider" destination="oRc-jX-Qub" id="9Vu-46-YHO"/>
                         <outlet property="ui_noteName_textField" destination="TwT-XL-bGZ" id="3pg-UX-sCD"/>
@@ -334,7 +351,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLP-EO-453" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="FIf-qK-xF7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2884" y="-1012"/>
+            <point key="canvasLocation" x="2884" y="-1012.4437781109445"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

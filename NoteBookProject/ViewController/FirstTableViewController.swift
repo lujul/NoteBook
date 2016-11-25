@@ -13,8 +13,8 @@ class FirstTableViewController: UITableViewController {
     
     let realm = try! Realm()
     // Get the default Realm
-    let subjectsRealmList:Results<Subject> = try! Realm().objects(Subject.self)
-    
+    let subjectsRealmList:Results<Subject> = try! Realm().objects(Subject.self) //tout le temps a jour qd on l appelle
+    let user: User = User()
     
     
     override func viewDidLoad() {
@@ -22,11 +22,13 @@ class FirstTableViewController: UITableViewController {
         if self.tableView != nil {
             self.tableView.reloadData()
         }
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+       //  self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,7 +38,7 @@ class FirstTableViewController: UITableViewController {
    
     
     func addNewSubject(newSubject:Subject) {
-        
+        //user.addSubject ...(correction)
         try! realm.write {
             realm.add(newSubject)
         }
@@ -70,7 +72,8 @@ class FirstTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-       
+        
+       //user.getSubjectCount (correction)
         return subjectsRealmList.count
     }
 
@@ -78,6 +81,7 @@ class FirstTableViewController: UITableViewController {
         if segue.identifier == "subject-note" {
             if let cell = sender as? UITableViewCell{
                 if let indexPath = self.tableView.indexPath(for: cell) {
+                    //user.getSubject (correction)
                     let selectedSubject = subjectsRealmList[indexPath.row]
                     let noteDetailViewController:NoteDetailTableViewController = segue.destination as! NoteDetailTableViewController
                     noteDetailViewController.subject = selectedSubject
@@ -91,8 +95,9 @@ class FirstTableViewController: UITableViewController {
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "subject-tableView", for: indexPath)
-        cell.textLabel?.text = subjectsRealmList[indexPath.row].name
-        cell.detailTextLabel?.text = String(subjectsRealmList[indexPath.row].range)
+        //user.getSubjectAtIndex (correction)
+        cell.textLabel?.text = subjectsRealmList[indexPath.row].getTitle()
+        cell.detailTextLabel?.text = "Coef:\(subjectsRealmList[indexPath.row].getRange())"
         return cell
     }
     
@@ -107,6 +112,8 @@ class FirstTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            
+            //user.deleteSubject(at (correction)
            let subjectToDelete = subjectsRealmList[indexPath.row]
            try! realm.write {
                 realm.delete(subjectToDelete)

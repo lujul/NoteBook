@@ -14,7 +14,7 @@ class NoteDetailTableViewController: UITableViewController {
     let realm = try! Realm()
     // Get the default Realm
     
-   
+    
     private var _subject:Subject?
     var subject: Subject? {
         get {
@@ -26,7 +26,7 @@ class NoteDetailTableViewController: UITableViewController {
     }
     func addNewNote(newNote:Note) {
         
-        _subject?.addNote(comment: newNote.comment, value: newNote.value, range: newNote.range)
+        _subject?.addNote(comment: newNote.getTitle(), value: newNote.getValue(), range: newNote.getCoef())
         print("suiszici")
         if tableView != nil {
             self.tableView.reloadData()
@@ -35,7 +35,7 @@ class NoteDetailTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("\(subject?.name) nom du sujet")
+        print("\(subject?.getTitle()) nom du sujet")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -73,37 +73,38 @@ class NoteDetailTableViewController: UITableViewController {
     }
     
     
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "notes-cell", for: indexPath)
-     cell.textLabel?.text = _subject?.notesList[indexPath.row].comment
-     cell.detailTextLabel?.text = _subject?.notesList[indexPath.row].comment
- 
-     
-     // Configure the cell...
-     
-     return cell
-     }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "notes-cell", for: indexPath)
+        
+        let note = _subject?.getMark(atIndex: indexPath.row)
+        cell.textLabel?.text = note?.getTitle()
+        let noteValue = note?.getCoef()
+        cell.detailTextLabel?.text = "\(noteValue!)"
+        
+        return cell
+    }
     
     
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
     
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
+    // Override to support conditional editing of the table view.
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    
+    
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source    // Delete the row from the data source
+            
+            subject?.delete(atIndex: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
     
     /*
      // Override to support rearranging the table view.

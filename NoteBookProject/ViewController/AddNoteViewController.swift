@@ -8,8 +8,11 @@
 
 import UIKit
 
-class AddNoteViewController: UIViewController {
-
+class AddNoteViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    var pickOption = ["1","2", "3","4","5","6","7","8","9","10"]
+    
+    @IBOutlet weak var picketTextField: UITextField!
     private var _note:Note?
     var note: Note? {
         return _note
@@ -17,8 +20,33 @@ class AddNoteViewController: UIViewController {
     @IBOutlet weak var ui_noteName_textField: UITextField!
     @IBOutlet weak var ui_coef_label: UILabel!
     @IBOutlet weak var ui_coef_slider: UISlider!
+    // Put this piece of code anywhere you like
+   
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickOption.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickOption[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        picketTextField.text = pickOption[row]
+      
+    }
+    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
+        let pickerView = UIPickerView()
+        
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        
+        self.hideKeyboardWhenTappedAround()
+
+        picketTextField.inputView = pickerView
         ui_noteName_textField.text = ""
         ui_coef_label.text = String(Int(ui_coef_slider.value))
 
@@ -82,4 +110,15 @@ class AddNoteViewController: UIViewController {
     }
     */
 
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

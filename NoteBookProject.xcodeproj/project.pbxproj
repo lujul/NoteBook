@@ -16,6 +16,7 @@
 		88618CA81DE32B5400FD10BC /* FirstTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88618CA71DE32B5400FD10BC /* FirstTableViewController.swift */; };
 		88618CAA1DE32F4600FD10BC /* AddSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88618CA91DE32F4600FD10BC /* AddSubjectViewController.swift */; };
 		88618CAC1DE5F26F00FD10BC /* NoteDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88618CAB1DE5F26F00FD10BC /* NoteDetailTableViewController.swift */; };
+		88AA66BB1DE84BE100C623A2 /* UserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AA66BA1DE84BE100C623A2 /* UserTest.swift */; };
 		88EB3D5E1DE2EBE7002CD051 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EB3D5D1DE2EBE7002CD051 /* AppDelegate.swift */; };
 		88EB3D601DE2EBE7002CD051 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EB3D5F1DE2EBE7002CD051 /* FirstViewController.swift */; };
 		88EB3D621DE2EBE7002CD051 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EB3D611DE2EBE7002CD051 /* SecondViewController.swift */; };
@@ -63,6 +64,7 @@
 		88618CA71DE32B5400FD10BC /* FirstTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTableViewController.swift; sourceTree = "<group>"; };
 		88618CA91DE32F4600FD10BC /* AddSubjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSubjectViewController.swift; sourceTree = "<group>"; };
 		88618CAB1DE5F26F00FD10BC /* NoteDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetailTableViewController.swift; sourceTree = "<group>"; };
+		88AA66BA1DE84BE100C623A2 /* UserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTest.swift; sourceTree = "<group>"; };
 		88EB3D5A1DE2EBE7002CD051 /* NoteBookProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteBookProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88EB3D5D1DE2EBE7002CD051 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88EB3D5F1DE2EBE7002CD051 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				88EB3D741DE2EBE8002CD051 /* NoteBookProjectTests.swift */,
 				88EB3D761DE2EBE8002CD051 /* Info.plist */,
 				8852DC7A1DE701A300BE2031 /* NoteTests.swift */,
+				88AA66BA1DE84BE100C623A2 /* UserTest.swift */,
 			);
 			path = NoteBookProjectTests;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88EB3D751DE2EBE8002CD051 /* NoteBookProjectTests.swift in Sources */,
+				88AA66BB1DE84BE100C623A2 /* UserTest.swift in Sources */,
 				8852DC7B1DE701A300BE2031 /* NoteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

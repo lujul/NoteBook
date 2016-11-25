@@ -7,30 +7,31 @@
 //
 
 import Foundation
+import RealmSwift
 class User {
     
-    private var _name:String
-    private var _subjectList: [Subject] = [Subject]()
+    private let _subjectsRealmList:Results<Subject>
+    private let _realm:Realm
     
-    init ( name: String ) {
-        _name = name
+    init () {
+        _realm = try! Realm()
+        _subjectsRealmList = _realm.objects(Subject.self)
     }
     
-    var subjectsList:[Subject] {
-        get {
-            return _subjectList
+    func getSubjectCount() -> Int {
+        return _subjectsRealmList.count
+    }
+    func getSubject ( atIndex index:Int ) -> Subject?{
+        var subject:Subject?
+        if index >= 0 && index < getSubjectCount() {
+            subject = _subjectsRealmList[index]
         }
-        set {
-            _subjectList = newValue
-        }
+        return subject
     }
+   
     
-    func addSubject (subject:Subject) {
-        _subjectList.append(subject)
-    }
-    
-    func average () -> Float {
-        return 0.0
+    func deleteSubject(atIndex index:Int) {
+        
     }
     
 }
