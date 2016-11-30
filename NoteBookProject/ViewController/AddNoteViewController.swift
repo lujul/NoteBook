@@ -51,6 +51,8 @@ class AddNoteViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         ui_coef_label.text = String(Int(ui_coef_slider.value))
 
         // Do any additional setup after loading the view.
+        
+       
     }
 
     override func didReceiveMemoryWarning() {

@@ -79,6 +79,7 @@
 		88EB3D7B1DE2EBE8002CD051 /* NoteBookProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoteBookProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88EB3D7F1DE2EBE8002CD051 /* NoteBookProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteBookProjectUITests.swift; sourceTree = "<group>"; };
 		88EB3D811DE2EBE8002CD051 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88F2F0821DEC403A001299E6 /* NoteBookProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NoteBookProject.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +156,7 @@
 		88EB3D5C1DE2EBE7002CD051 /* NoteBookProject */ = {
 			isa = PBXGroup;
 			children = (
+				88F2F0821DEC403A001299E6 /* NoteBookProject.entitlements */,
 				88618C9D1DE2F32600FD10BC /* ViewController */,
 				88618C9C1DE2F30D00FD10BC /* Model */,
 				88EB3D5D1DE2EBE7002CD051 /* AppDelegate.swift */,
@@ -288,7 +290,13 @@
 				TargetAttributes = {
 					88EB3D591DE2EBE7002CD051 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = G6Z98T43PA;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					88EB3D6F1DE2EBE8002CD051 = {
 						CreatedOnToolsVersion = 8.0;
@@ -656,6 +664,8 @@
 			baseConfigurationReference = 6CF05421609369FF097B1D08 /* Pods-NoteBookProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NoteBookProject/NoteBookProject.entitlements;
+				DEVELOPMENT_TEAM = G6Z98T43PA;
 				INFOPLIST_FILE = NoteBookProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lujul.NoteBookProject;
@@ -669,6 +679,8 @@
 			baseConfigurationReference = 55E95564BABD594C4D3C6097 /* Pods-NoteBookProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NoteBookProject/NoteBookProject.entitlements;
+				DEVELOPMENT_TEAM = G6Z98T43PA;
 				INFOPLIST_FILE = NoteBookProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lujul.NoteBookProject;

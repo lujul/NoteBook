@@ -11,17 +11,20 @@ import RealmSwift
 
 class FirstTableViewController: UITableViewController {
     
-    let realm = try! Realm()
+    var realm = try! Realm()
     // Get the default Realm
-    let subjectsRealmList:Results<Subject> = try! Realm().objects(Subject.self) //tout le temps a jour qd on l appelle
+    var subjectsRealmList:Results<Subject> = try! Realm().objects(Subject.self) //tout le temps a jour qd on l appelle
     let user: User = User()
-    
+    private static let SERVER_IP = "192.168.1.42:9080"
+    var _notificationToken:NotificationToken!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if self.tableView != nil {
             self.tableView.reloadData()
         }
+       prepareRealm()
         
         print(Realm.Configuration.defaultConfiguration.fileURL)
         // Uncomment the following line to preserve selection between presentations
@@ -29,6 +32,57 @@ class FirstTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
        //  self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func realmConnected(withUser user:SyncUser) {
+        // can now open a synchronized Realm with this user
+        let syncServerURL = URL(string: "realm://\(FirstTableViewController.SERVER_IP)/~/julienRealm")!
+        let config = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: syncServerURL))
+        
+        // Open the remote Realm
+        realm = try! Realm(configuration: config)
+        subjectsRealmList = realm.objects(Subject.self)
+        _notificationToken =  subjectsRealmList.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
+            guard let tableView = self?.tableView else { return }
+            switch changes {
+            case .initial:
+                // Results are now populated and can be accessed without blocking the UI
+                tableView.reloadData()
+                break
+            case .update(_, let deletions, let insertions, let modifications):
+                // Query results have changed, so apply them to the UITableView
+                tableView.beginUpdates()
+                tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
+                                     with: .automatic)
+                tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
+                                     with: .automatic)
+                tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
+                                     with: .automatic)
+                tableView.endUpdates()
+                break
+            case .error(let error):
+                // An error occurred while opening the Realm file on the background worker thread
+                fatalError("\(error)")
+                break
+            }
+        }
+        
+    }
+    
+    func prepareRealm() {
+        let serverURL = NSURL(string: "http://\(FirstTableViewController.SERVER_IP)")!
+        let usernameCredentials = SyncCredentials.usernamePassword(username: "julien3b@gmail.com", password: "toto")
+        SyncUser.logIn(with: usernameCredentials,
+                       server:serverURL as URL) { user, error in
+                        if let user = user {
+                            DispatchQueue.main.async {
+                                self.realmConnected(withUser: user)
+                            }
+                        } else if let error = error {
+                            // handle error
+                            print("REALM : error \(error)")
+                        }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,9 +97,9 @@ class FirstTableViewController: UITableViewController {
             realm.add(newSubject)
         }
         
-        if tableView != nil {
-            self.tableView.reloadData()
-        }
+       // if tableView != nil {
+         //   self.tableView.reloadData()
+        //}
     }
     
     @IBAction func unwindToVCbySave(for segue: UIStoryboardSegue) { //Action créée a la main //je pourrais recuperer mon object newSubject du AddSuject.. viewController ici si je voulais
@@ -88,9 +142,7 @@ class FirstTableViewController: UITableViewController {
                     // on ajoute l objet au vueController
                 }
             }
-            
         }
-        
     }
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -105,8 +157,7 @@ class FirstTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
-    }  
-
+    }
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -118,7 +169,7 @@ class FirstTableViewController: UITableViewController {
            try! realm.write {
                 realm.delete(subjectToDelete)
             }
-           tableView.deleteRows(at: [indexPath], with: .fade)
+           //tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
    
